@@ -1,5 +1,5 @@
 openapi: 3.0.1
 info:
-  title: Fullstack Challenge 20201209
+  title: Back-en Challenge 2021
   description: CRUD Users
   version: '0.1'
