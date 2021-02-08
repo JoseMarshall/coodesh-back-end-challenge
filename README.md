@@ -18,7 +18,7 @@ O seu objetivo nesse projeto, é trabalhar no desenvolvimento da REST API da emp
 ## Recursos
 
 1. Desenvolver REST API importando os dados do projeto: https://randomuser.me/documentation
-2. Trabalhar em um [FORK](https://lab.coodesh.com/help/gitlab-basics/fork-project.md) deste repositório em seu usuário;
+2. Trabalhar em um [FORK](https://lab.coodesh.com/help/gitlab-basics/fork-project.md) deste repositório em seu usuário ou utilizar um repositório em seu github pessoal (não esqueça de colocar no readme a referência a este challenge)
 
 
 ## API
