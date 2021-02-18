@@ -4,7 +4,7 @@
 
 Este é um desafio para testar seus conhecimentos em Back-end;
 
-O objetivo é avaliar a sua forma de estruturação e autonomia em decisões para construir algo escalável utilizando um framework moderno javascript.
+O objetivo é avaliar a sua forma de estruturação e autonomia em decisões para construir algo escalável utilizando um framework moderno.
 
 Você está livre para usar uma das seguintes tecnologias para desenvolver o back-end da solução deste tech challenge: **Node.js** ou **C# .NET Core** ou **PHP Laravel** ou **RubyOnRails** ou **Go Lang** ou **Python FastAPI** ou **Kotlin SpringBoot** ou **Java** ou **Rust**.
 
