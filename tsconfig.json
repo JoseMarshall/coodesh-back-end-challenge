@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "CommonJS",
+    "strict": false,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noImplicitAny": true,
+    "importHelpers": true,
+    "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "built"
+  },
+  "exclude": ["node_modules", ".husky", ".vscode", "**/*.test.ts", "**/*.spec.ts"],
+  "include": ["**/*.ts", "**/*.js"]
+}
