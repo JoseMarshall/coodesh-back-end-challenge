@@ -21,16 +21,19 @@ export interface GetOneUser extends GetOne {}
 export interface DeleteOneUser extends DeleteOne {}
 
 export interface UpdateUser {
-  [User.Name]?: IName;
-  [User.Gender]?: `${Genders}`;
-  [User.Location]?: ILocation;
-  [User.Email]?: string;
-  [User.Login]?: ILogin;
-  [User.Dob]?: IDob;
-  [User.Registered]?: IRegistered;
-  [User.Phone]?: string;
-  [User.Cell]?: string;
-  [User.Nat]?: string;
-  [User.Id]?: IUserId;
-  [User.Picture]?: IPicture;
+  params: GetOne;
+  body: {
+    [User.Name]?: IName;
+    [User.Gender]?: `${Genders}`;
+    [User.Location]?: ILocation;
+    [User.Email]?: string;
+    [User.Login]?: ILogin;
+    [User.Dob]?: IDob;
+    [User.Registered]?: IRegistered;
+    [User.Phone]?: string;
+    [User.Cell]?: string;
+    [User.Nat]?: string;
+    [User.Id]?: IUserId;
+    [User.Picture]?: IPicture;
+  };
 }
