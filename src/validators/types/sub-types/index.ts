@@ -8,3 +8,7 @@ export interface GetAll {
 export interface GetOne {
   [Common.MongoId]: string;
 }
+
+export interface DeleteOne {
+  [Common.MongoId]: string;
+}
