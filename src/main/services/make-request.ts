@@ -16,8 +16,14 @@ const makeRequest =
       body: JSON.stringify(data),
     });
 
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
     const responseData = await response.json();
-    if (response.status < 200 || response.status > 299) throw new Error((responseData as any).msg);
+    if (response.status < 200 || response.status > 299) {
+      throw new Error((responseData as any).msg);
+    }
 
     return {
       status: response.status,

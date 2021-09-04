@@ -1,6 +1,7 @@
 import joi from 'joi';
 
 import {
+  Common,
   Coordinates,
   Dob,
   Genders,
@@ -9,6 +10,7 @@ import {
   Name,
   Picture,
   Registered,
+  Status,
   Street,
   TimeZone,
   User,
@@ -31,6 +33,7 @@ const updateUserSchema = joi
           })
           .unknown(false),
         [User.Gender]: joi.string().valid(...Object.values(Genders)),
+        [Common.Status]: joi.string().valid(...Object.values(Status)),
         [User.Location]: joi
           .object({
             [Location.Street]: joi

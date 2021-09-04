@@ -1,4 +1,4 @@
-import { Genders, User } from '../../../constants';
+import { Common, Genders, Status, User } from '../../../constants';
 import {
   IDob,
   ILocation,
@@ -35,5 +35,6 @@ export interface UpdateUser {
     [User.Nat]?: string;
     [User.Id]?: IUserId;
     [User.Picture]?: IPicture;
+    [Common.Status]?: `${Status}`;
   };
 }
