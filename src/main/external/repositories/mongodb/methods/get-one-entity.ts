@@ -1,6 +1,5 @@
 import { Document } from 'mongoose';
 
-import { Common } from '../../../../../constants';
 import { GetOne } from '../../../../../validators/types/sub-types';
 import { queryGuard } from '../helpers';
 import { MakeGetOneEntityData } from '../mongoose.types';
@@ -12,13 +11,7 @@ export function makeGetOneEntity<D extends Document, K>({
 }: MakeGetOneEntityData<D, K>) {
   return async (query: GetOne) => {
     const doc = await queryGuard<D>(
-      model
-        .findOne(query, {
-          [Common.MongoId]: 0,
-          ...(options.projection ?? {}),
-        })
-        ?.populate(options.populateOptions)
-        .exec()
+      model.findOne(query, options.projection)?.populate(options.populateOptions).exec()
     );
 
     return options.formatData

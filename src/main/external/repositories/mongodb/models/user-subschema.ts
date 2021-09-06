@@ -72,8 +72,8 @@ export const loginSchema = new Schema(
   {
     [Login.UUID]: { type: String, required: true },
     [Login.Username]: { type: String, required: true },
-    [Login.Password]: { type: String, required: true },
-    [Login.Salt]: { type: String, required: true },
+    [Login.Password]: { type: String, required: true, select: false },
+    [Login.Salt]: { type: String, required: true, select: false },
     [Login.MD5]: { type: String, required: true },
     [Login.SHA1]: { type: String, required: true },
     [Login.SHA256]: { type: String, required: true },

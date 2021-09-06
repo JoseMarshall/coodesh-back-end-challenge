@@ -6,7 +6,6 @@ import {
   Dob,
   Genders,
   Location,
-  Login,
   Name,
   Picture,
   Registered,
@@ -63,17 +62,6 @@ const updateUserSchema = joi
           })
           .unknown(false),
         [User.Email]: joi.string().email(),
-        [User.Login]: joi
-          .object({
-            [Login.UUID]: joi.string().required(),
-            [Login.Username]: joi.string().required(),
-            [Login.Password]: joi.string().required(),
-            [Login.Salt]: joi.string().required(),
-            [Login.MD5]: joi.string().required(),
-            [Login.SHA1]: joi.string().required(),
-            [Login.SHA256]: joi.string().required(),
-          })
-          .unknown(false),
         [User.Dob]: joi
           .object({
             [Dob.Date]: joi.date().required(),

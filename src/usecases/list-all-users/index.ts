@@ -1,4 +1,4 @@
-import { ApiErrorsName, ApiErrorsType, ApiMessages } from '../../constants';
+import { ApiErrorsName, ApiErrorsType, ApiMessages, Common, Login, User } from '../../constants';
 import { IUser } from '../../entities/user/user.types';
 import { formatQueryToRegex } from '../../main/external/repositories/mongodb/helpers/query-formatters';
 import { MakeGetAllEntitiesDependencies } from '../../main/external/repositories/mongodb/mongoose.types';
@@ -15,6 +15,11 @@ export function listAllUsersUC() {
 
       const users = await usersRepo.getAll<MakeGetAllEntitiesDependencies<IUser>>(query, {
         formatQuery: formatQueryToRegex,
+        projection: {
+          [`${User.Login}.${Login.Password}`]: 0,
+          [`${User.Login}.${Login.Salt}`]: 0,
+          [Common.MongoId]: 1,
+        },
       });
 
       return {

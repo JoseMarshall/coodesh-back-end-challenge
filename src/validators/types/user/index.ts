@@ -2,7 +2,6 @@ import { Common, Genders, Status, User } from '../../../constants';
 import {
   IDob,
   ILocation,
-  ILogin,
   IName,
   IPicture,
   IRegistered,
@@ -27,7 +26,6 @@ export interface UpdateUser {
     [User.Gender]?: `${Genders}`;
     [User.Location]?: ILocation;
     [User.Email]?: string;
-    [User.Login]?: ILogin;
     [User.Dob]?: IDob;
     [User.Registered]?: IRegistered;
     [User.Phone]?: string;
