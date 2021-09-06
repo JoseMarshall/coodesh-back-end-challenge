@@ -13,6 +13,14 @@ export enum User {
   Nat = 'nat',
 }
 
+export enum ApiKey {
+  MongoId = '_id',
+  Apikey = 'apiKey',
+  Host = 'host',
+  Usage = 'usage',
+}
+
 export enum CollectionNames {
   Users = 'users',
+  ApiKeys = 'apikeys',
 }

@@ -84,7 +84,8 @@ export type ApiErrorsStatusCode =
   | 599;
 
 export enum ApiMessages {
-  NotSignedIn = 'You are not signed in, please sign in',
+  MaxApiCallsExceeded = 'Max API calls exceeded',
+  NotAllowed = 'You are not allowed to access this resource, please require a new API KEY',
   InternalError = 'An application error occurred, the server was unable to process your request',
   UpdatingEntityError = 'Failed to update the entity, probably due to some data entered incorrectly, please check the data on your form',
   RouteNotFound = 'Route not found',

@@ -80,3 +80,8 @@ export enum Login {
   SHA1 = 'sha1',
   SHA256 = 'sha256',
 }
+
+export enum ApiKeyUsage {
+  Date = 'date',
+  Count = 'count',
+}
