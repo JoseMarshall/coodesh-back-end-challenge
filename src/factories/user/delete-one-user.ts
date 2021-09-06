@@ -1,10 +1,10 @@
 import makeDeleteEntityController from '../../controllers/delete-entity';
-import { IUser } from '../../entities/user/user.types';
+import { DeletedEntity } from '../../main/external/repositories/repository.types';
 import { deleteOneUserUC } from '../../usecases/delete-one-user';
 import { makeDeleteOneUserValidator } from '../../validators/schemas/http-requests/user';
 import { DeleteOneUser } from '../../validators/types/user';
 
-const deleteOneUser = makeDeleteEntityController<IUser, DeleteOneUser>({
+const deleteOneUser = makeDeleteEntityController<DeletedEntity, DeleteOneUser>({
   deleteAll: deleteOneUserUC(),
   requestValidator: makeDeleteOneUserValidator(),
 });

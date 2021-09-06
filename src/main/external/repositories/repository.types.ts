@@ -7,10 +7,29 @@ export interface GetAllEntitiesData<T> {
   count: number;
 }
 
+export interface DeletedEntity {
+  n: number;
+  opTime: {
+    ts: string;
+    t: number;
+  };
+  electionId: string;
+  ok: number;
+  $clusterTime: {
+    clusterTime: string;
+    signature: {
+      hash: string;
+      keyId: string;
+    };
+  };
+  operationTime: string;
+  deletedCount: number;
+}
+
 export interface IRepository<T> {
   add(entities: T[]): Promise<T[]>;
   update(query: GetOne, body: Omit<Record<string, any>, keyof Entity>): Promise<T>;
-  remove(query: GetOne): Promise<T>;
+  remove(query: GetOne): Promise<DeletedEntity>;
   get<O>(query: GetOne, options: O): Promise<T>;
   getAll<O>(query: GetAll, options: O): Promise<GetAllEntitiesData<T>>;
 }
