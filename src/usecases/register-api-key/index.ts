@@ -11,10 +11,10 @@ export function registerApiKeyUC() {
     try {
       const apiKeyRepo = unitOfWork.makeApiKeyRepository();
 
-      const createdApiKey = await apiKeyRepo.add(makeApiKey(req.hostname));
+      const createdApiKey = (await apiKeyRepo.add(makeApiKey(req.hostname)))[0];
 
       return {
-        payload: createdApiKey[0],
+        payload: createdApiKey,
       };
     } catch (error) {
       throw error instanceof CustomError
