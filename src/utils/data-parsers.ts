@@ -10,3 +10,15 @@ export const safeParseInt = (s: string, radix?: number) => {
   const parsedData = parseInt(s, radix);
   return Number.isNaN(parsedData) ? 0 : parsedData;
 };
+
+/**
+ * @description Add a number of days to a Date
+ * @param date The date you intend to add days to
+ * @param days The number of days you intend to add, N.B.: You can pass negative numbers if you intend to subtract days instead of add
+ * @returns The new date added the specified number of days
+ */
+export function addDays(date: Date, days: number) {
+  const newDate = new Date(Number(date));
+  newDate.setDate(date.getDate() + days);
+  return newDate.getDate() ? newDate : undefined;
+}
