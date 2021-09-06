@@ -12,13 +12,13 @@ import { ErrorDescription, SuccessDescription, Tags } from '../../enums';
 export const updateUser = {
   put: {
     tags: [Tags.User],
-    summary: 'end-point to update one user',
+    summary: 'end-point to update an user',
     parameters: [
       makePathParamSchema({
         name: Common.MongoId,
         type: 'string',
         description: 'The unique identifier of this user in database',
-        example: '60509d69037fc0444cca14df',
+        example: 'f37226ad-f294-49b6-ac6d-5fd18995220a',
         required: true,
       }),
     ],

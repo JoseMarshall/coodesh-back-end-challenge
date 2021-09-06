@@ -1,5 +1,6 @@
 export enum Tags {
   User = 'User',
+  Generic = '',
 }
 
 export enum TimeStamps {

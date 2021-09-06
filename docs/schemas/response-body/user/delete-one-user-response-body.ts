@@ -1,33 +1,38 @@
-import { User } from '../../../../src/constants';
-import { makeGeneralResponseBodySchema } from '../../../builders';
-import { userSchema } from '../../entities';
+import {
+  makeGeneralResponseBodySchema,
+  makeIntegerSchema,
+  makeObjectSchema,
+  makeStringSchema,
+} from '../../../builders';
 
 // eslint-disable-next-line import/prefer-default-export
 export const deleteOneUserResponseBodySchema = makeGeneralResponseBodySchema(
   {
-    [User.Name]: userSchema.properties[User.Name],
-    [User.Gender]: userSchema.properties[User.Gender],
-    [User.Location]: userSchema.properties[User.Location],
-    [User.Email]: userSchema.properties[User.Email],
-    [User.Dob]: userSchema.properties[User.Dob],
-    [User.Registered]: userSchema.properties[User.Registered],
-    [User.Phone]: userSchema.properties[User.Phone],
-    [User.Cell]: userSchema.properties[User.Cell],
-    [User.Nat]: userSchema.properties[User.Nat],
-    [User.Id]: userSchema.properties[User.Id],
-    [User.Picture]: userSchema.properties[User.Picture],
+    n: makeIntegerSchema({ example: 1 }),
+    opTime: makeObjectSchema({
+      properties: {
+        ts: makeStringSchema({ example: '7004544472352555009' }),
+        t: makeIntegerSchema({ example: 101 }),
+      },
+      required: ['ts', 't'],
+    }),
+    electionId: makeStringSchema({ example: '7fffffff0000000000000065' }),
+    ok: makeIntegerSchema({ example: 1 }),
+    $clusterTime: makeObjectSchema({
+      required: ['clusterTime', 'signature'],
+      properties: {
+        clusterTime: makeStringSchema({ example: '7004544472352555009' }),
+        signature: makeObjectSchema({
+          required: ['hash', 'keyId'],
+          properties: {
+            hash: makeStringSchema({ example: 'q0cWeOXz1DzdrFUK6TDsNt8nIjQ=' }),
+            keyId: makeStringSchema({ example: '6961454422681452546' }),
+          },
+        }),
+      },
+    }),
+    operationTime: makeStringSchema({ example: '7004544472352555009' }),
+    deletedCount: makeIntegerSchema({ example: 1 }),
   },
-  [
-    User.Name,
-    User.Gender,
-    User.Location,
-    User.Email,
-    User.Dob,
-    User.Registered,
-    User.Phone,
-    User.Cell,
-    User.Nat,
-    User.Id,
-    User.Picture,
-  ]
+  ['n', 'opTime', 'electionId', 'ok', '$clusterTime', 'operationTime', 'deletedCount']
 );

@@ -1,5 +1,5 @@
 {
-  "name": "coodesh-backend-challenge",
+  "name": "coodesh-backend-challenge-2021",
   "version": "1.0.0",
   "description": "The resolution of back-end challenge 2021",
   "main": "built/src/main/server.js",
@@ -36,6 +36,7 @@
     "node-fetch": "2.6.1",
     "pg": "^8.6.0",
     "pino": "^6.12.0",
+    "swagger-ui-express": "^4.1.6",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -51,6 +52,7 @@
     "@types/pg": "^8.6.1",
     "@types/pino": "^6.3.9",
     "@types/supertest": "^2.0.11",
+    "@types/swagger-ui-express": "^4.1.3",
     "@types/uuid": "^8.3.1",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
     "@typescript-eslint/parser": "^4.28.4",

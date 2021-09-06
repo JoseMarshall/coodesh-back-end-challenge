@@ -1,8 +1,10 @@
 import { Tags } from './enums';
+import { getDefaultRoute } from './paths/generic';
 import { deleteUser, getAllUsers, getOneUser, updateUser } from './paths/user';
 import { updateUserRequestBodySchema } from './schemas/request-body';
 import {
   deleteOneUserResponseBodySchema,
+  genericResponseBodySchema,
   getAllUsersResponseBodySchema,
   getOneUserResponseBodySchema,
   updateUserResponseBodySchema,
@@ -18,15 +20,18 @@ export default {
   servers: [{ url: '/' }],
   tags: [
     {
+      name: Tags.Generic,
+    },
+    {
       name: Tags.User,
       description: 'All endpoints regarding to User entity',
     },
   ],
 
   paths: {
-    '': 'Default route',
-    'users/{id}': { ...getOneUser, ...updateUser, ...deleteUser },
-    users: getAllUsers,
+    '/': getDefaultRoute,
+    '/users': getAllUsers,
+    '/users/{_id}': { ...getOneUser, ...updateUser, ...deleteUser },
   },
 
   schemas: {
@@ -38,6 +43,7 @@ export default {
       getAllUsers: getAllUsersResponseBodySchema,
       updateUser: updateUserResponseBodySchema,
       deleteUser: deleteOneUserResponseBodySchema,
+      getDefaultRoute: genericResponseBodySchema,
     },
   },
 };

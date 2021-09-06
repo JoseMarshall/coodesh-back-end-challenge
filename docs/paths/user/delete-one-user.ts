@@ -8,13 +8,13 @@ import { ErrorDescription, SuccessDescription, Tags } from '../../enums';
 export const deleteUser = {
   delete: {
     tags: [Tags.User],
-    summary: 'end-point to delete one user',
+    summary: 'end-point to delete an user',
     parameters: [
       makePathParamSchema({
         name: Common.MongoId,
         type: 'string',
         description: 'The unique identifier of this user in database',
-        example: '605d280bdf0eea37744e10c1',
+        example: 'f37226ad-f294-49b6-ac6d-5fd18995220a',
         required: true,
       }),
     ],
