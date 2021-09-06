@@ -1,6 +1,5 @@
 import { Document } from 'mongoose';
 
-import { GetOne } from '../../../../../validators/types/sub-types';
 import { queryGuard } from '../helpers';
 import { MakeGetOneEntityData } from '../mongoose.types';
 
@@ -9,7 +8,7 @@ export function makeGetOneEntity<D extends Document, K>({
   model,
   options,
 }: MakeGetOneEntityData<D, K>) {
-  return async (query: GetOne) => {
+  return async (query: Record<string, any>) => {
     const doc = await queryGuard<D>(
       model.findOne(query, options.projection)?.populate(options.populateOptions).exec()
     );

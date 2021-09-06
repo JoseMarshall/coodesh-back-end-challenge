@@ -2,7 +2,6 @@ import { Document, UpdateQuery } from 'mongoose';
 
 import { Common } from '../../../../../constants';
 import { Entity } from '../../../../../entities/entity.types';
-import { GetOne } from '../../../../../validators/types/sub-types';
 import { queryGuard } from '../helpers';
 import { MakeUpdateOneEntityData } from '../mongoose.types';
 
@@ -12,7 +11,7 @@ export function makeUpdateOneEntity<D extends Document, T>({
   transaction,
   populateOptions,
 }: MakeUpdateOneEntityData<D>) {
-  return async (query: GetOne, body: Omit<Record<string, any>, keyof Entity>) => {
+  return async (query: Record<string, any>, body: Omit<Record<string, any>, keyof Entity>) => {
     const doc = await queryGuard<D>(
       model
         .findOneAndUpdate(query, body as UpdateQuery<unknown>, {

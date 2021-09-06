@@ -31,6 +31,10 @@ export interface MakeGetOneEntityData<D extends Document, K> {
   options: MakeGetOneEntityDependencies<K>;
 }
 
+export interface MakeExistsEntityData<D extends Document> {
+  model: Model<D>;
+}
+
 export interface MakeGetAllEntityData<D extends Document, K> {
   model: Model<D>;
   options: MakeGetAllEntitiesDependencies<K>;
