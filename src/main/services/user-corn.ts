@@ -18,7 +18,7 @@ const importUsers = async () => {
     (await Promise.all(
       Array.from({ length: 4 }, (_, i) => i + 1).flatMap(page => [
         getRequest<{ results: IUserInput[] }>(
-          `https://randomuser.me/api?page=${page}&results=500&format=pretty`
+          `https://randomuser.me/api/1.3/?page=${page}&results=500&format=json`
         ).then(importedUser => importedUser.data.results.map(user => makeUser(user))),
       ])
     ).catch(e => logger.error(e, ApiMessages.InternalError))) as unknown as IUser[]
