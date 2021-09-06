@@ -3,6 +3,7 @@ import { ApiErrorsName, ApiErrorsType } from '../../../src/constants/messages';
 import {
   getRequestBodySchemaRef,
   getResponseBodySchemaRef,
+  makeHeaderParamSchema,
   makePathParamSchema,
 } from '../../builders';
 import { customError, joiValidationError } from '../../components';
@@ -14,6 +15,13 @@ export const updateUser = {
     tags: [Tags.User],
     summary: 'end-point to update an user',
     parameters: [
+      makeHeaderParamSchema({
+        name: 'x-api-key',
+        type: 'string',
+        description: 'The API KEY required to access this resource',
+        example: 'p2wik7no2a4vephuaeou58iz20v41u',
+        required: true,
+      }),
       makePathParamSchema({
         name: Common.MongoId,
         type: 'string',
@@ -44,7 +52,12 @@ export const updateUser = {
         type: ApiErrorsType.GenericType,
         code: 400,
       }),
-
+      403: customError({
+        description: ErrorDescription.NotAllowed,
+        name: ApiErrorsName.GenericName,
+        type: ApiErrorsType.AuthorizationError,
+        code: 403,
+      }),
       404: customError({
         description: ErrorDescription.NotFound,
         name: ApiErrorsName.ResourceNotFound,
@@ -52,6 +65,12 @@ export const updateUser = {
         code: 404,
       }),
       422: joiValidationError(),
+      429: customError({
+        description: 'Max Api Calls Exceeded',
+        name: 'MaxApiCallsExceeded',
+        type: ApiErrorsType.AuthorizationError,
+        code: 429,
+      }),
       500: customError({ description: ErrorDescription.InternalError }),
     },
   },

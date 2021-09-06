@@ -3,6 +3,7 @@ import { TimeStamps } from '../enums';
 import {
   MakeArraySchema,
   MakeGeneralResponseBodySchema,
+  MakeHeaderParamSchema,
   MakeIntegerSchema,
   MakeObjectSchema,
   MakePathParamSchema,
@@ -41,6 +42,11 @@ export const makeQueryParamSchema: MakeQueryParamSchema = data => ({
 export const makePathParamSchema: MakePathParamSchema = data => ({
   ...data,
   in: 'path',
+});
+
+export const makeHeaderParamSchema: MakeHeaderParamSchema = data => ({
+  ...data,
+  in: 'header',
 });
 
 export const getSchemaRef = (x: string) => ({ $ref: `#/schemas/${x}` });

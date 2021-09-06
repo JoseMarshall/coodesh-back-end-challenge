@@ -1,6 +1,7 @@
 export enum Tags {
   User = 'User',
   Generic = '',
+  ApiKey = 'ApiKey',
 }
 
 export enum TimeStamps {
@@ -16,6 +17,7 @@ export enum ErrorDescription {
   UnprocessableEntity = 'Unprocessable Entity - The request was weel-formed but failed due to semantic errors',
   NotAllowed = 'Method Not Allowed - Server not allows you to use this method on this resource',
   SchemaValidationError = 'Schema Validation Error',
+  MaxApiCallsExceeded = 'Max API calls exceeded',
 }
 
 export enum SuccessDescription {

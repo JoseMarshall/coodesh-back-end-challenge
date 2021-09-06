@@ -2,6 +2,7 @@ import { Name, User } from '../../../src/constants';
 import { ApiErrorsName, ApiErrorsType } from '../../../src/constants/messages';
 import {
   getResponseBodySchemaRef,
+  makeHeaderParamSchema,
   makeQueryParamSchema,
   paginationParamsArray,
 } from '../../builders';
@@ -15,6 +16,13 @@ export const getAllUsers = {
     summary: 'end-point to fetch all users',
     parameters: [
       ...paginationParamsArray,
+      makeHeaderParamSchema({
+        name: 'x-api-key',
+        type: 'string',
+        description: 'The API KEY required to access this resource',
+        example: 'p2wik7no2a4vephuaeou58iz20v41u',
+        required: true,
+      }),
       makeQueryParamSchema({
         name: `${User.Name}>${Name.Title}`,
         type: 'string',
@@ -55,7 +63,19 @@ export const getAllUsers = {
         type: ApiErrorsType.GenericType,
         code: 400,
       }),
+      403: customError({
+        description: ErrorDescription.NotAllowed,
+        name: ApiErrorsName.GenericName,
+        type: ApiErrorsType.AuthorizationError,
+        code: 403,
+      }),
       422: joiValidationError(),
+      429: customError({
+        description: 'Max Api Calls Exceeded',
+        name: 'MaxApiCallsExceeded',
+        type: ApiErrorsType.AuthorizationError,
+        code: 429,
+      }),
       500: customError({ description: ErrorDescription.InternalError }),
     },
   },

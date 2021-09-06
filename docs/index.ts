@@ -1,4 +1,5 @@
 import { Tags } from './enums';
+import { registerNewApiKey } from './paths/api-key';
 import { getDefaultRoute } from './paths/generic';
 import { deleteUser, getAllUsers, getOneUser, updateUser } from './paths/user';
 import { updateUserRequestBodySchema } from './schemas/request-body';
@@ -7,6 +8,7 @@ import {
   genericResponseBodySchema,
   getAllUsersResponseBodySchema,
   getOneUserResponseBodySchema,
+  registerApiKeyResponseBodySchema,
   updateUserResponseBodySchema,
 } from './schemas/response-body';
 
@@ -30,6 +32,7 @@ export default {
 
   paths: {
     '/': getDefaultRoute,
+    '/api-key/register': registerNewApiKey,
     '/users': getAllUsers,
     '/users/{_id}': { ...getOneUser, ...updateUser, ...deleteUser },
   },
@@ -44,6 +47,7 @@ export default {
       updateUser: updateUserResponseBodySchema,
       deleteUser: deleteOneUserResponseBodySchema,
       getDefaultRoute: genericResponseBodySchema,
+      registerNewApiKey: registerApiKeyResponseBodySchema,
     },
   },
 };

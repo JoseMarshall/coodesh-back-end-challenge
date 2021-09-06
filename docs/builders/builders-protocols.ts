@@ -110,6 +110,11 @@ interface MakePathParamSchemaReturn extends MakeParamSchemaData {
   in: 'path';
 }
 
+interface MakeHeaderParamSchemaReturn extends MakeParamSchemaData {
+  in: 'header';
+}
 export type MakeQueryParamSchema = (data: MakeParamSchemaData) => MakeQueryParamSchemaReturn;
 
 export type MakePathParamSchema = (data: MakeParamSchemaData) => MakePathParamSchemaReturn;
+
+export type MakeHeaderParamSchema = (data: MakeParamSchemaData) => MakeHeaderParamSchemaReturn;
