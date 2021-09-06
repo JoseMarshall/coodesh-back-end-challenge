@@ -1,14 +1,9 @@
-import { ApiErrorsI18nCode } from '../../constants';
-
 export interface HttpRequest {
   body?: Record<string, any>;
   query: Record<string, any>;
   params: Record<string, any>;
-}
-
-export interface MessageBody {
-  i18nCode: ApiErrorsI18nCode;
-  defaultValue: string;
+  headers: Record<string, any>;
+  hostname: string;
 }
 
 export interface EndpointResponse {
