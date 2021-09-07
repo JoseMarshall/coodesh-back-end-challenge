@@ -38,7 +38,7 @@ export async function queryGuard<T>(fn: Query<T, any> | Promise<T | null>): Prom
   return data;
 }
 
-if (client.connection.readyState === 0) {
+if (client.connection.readyState === 0 && process.env.NODE_ENV !== 'test') {
   MongoHelper.connect()
     .then()
     .catch(_error => {
