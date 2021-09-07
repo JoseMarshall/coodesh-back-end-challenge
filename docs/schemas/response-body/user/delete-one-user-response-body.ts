@@ -34,5 +34,5 @@ export const deleteOneUserResponseBodySchema = makeGeneralResponseBodySchema(
     operationTime: makeStringSchema({ example: '7004544472352555009' }),
     deletedCount: makeIntegerSchema({ example: 1 }),
   },
-  ['n', 'opTime', 'electionId', 'ok', '$clusterTime', 'operationTime', 'deletedCount']
+  ['n', 'ok', 'deletedCount']
 );

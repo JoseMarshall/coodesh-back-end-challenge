@@ -1,5 +1,6 @@
 export default [
   {
+    _id: '0778d592-ad9f-4ed2-8c8e-ca11d6b0231d',
     gender: 'male',
     name: {
       title: 'Mr',
@@ -54,8 +55,11 @@ export default [
       thumbnail: 'https://randomuser.me/api/portraits/thumb/men/69.jpg',
     },
     nat: 'FR',
+    status: 'draft',
+    imported_t: '2021-07-09T01:46:14.291Z',
   },
   {
+    _id: '835bd0c7-7cc0-40df-ae01-ea0ab4e4ada6',
     gender: 'female',
     name: {
       title: 'Miss',
@@ -110,8 +114,11 @@ export default [
       thumbnail: 'https://randomuser.me/api/portraits/thumb/women/31.jpg',
     },
     nat: 'DE',
+    status: 'draft',
+    imported_t: '2021-07-09T01:46:14.291Z',
   },
   {
+    _id: 'dca9474d-52c5-42e5-8f1b-a9cb5cf22d57',
     gender: 'male',
     name: {
       title: 'Mr',
@@ -166,8 +173,11 @@ export default [
       thumbnail: 'https://randomuser.me/api/portraits/thumb/men/27.jpg',
     },
     nat: 'FI',
+    status: 'draft',
+    imported_t: '2021-07-09T01:46:14.291Z',
   },
   {
+    _id: '3ca3fbcd-6381-4205-abe2-817cf359cedc',
     gender: 'female',
     name: {
       title: 'Ms',
@@ -222,8 +232,11 @@ export default [
       thumbnail: 'https://randomuser.me/api/portraits/thumb/women/56.jpg',
     },
     nat: 'GB',
+    status: 'draft',
+    imported_t: '2021-07-09T01:46:14.291Z',
   },
   {
+    _id: '33697713-0a3a-455b-a0ca-b5e4b1d21d1c',
     gender: 'female',
     name: {
       title: 'Miss',
@@ -278,5 +291,7 @@ export default [
       thumbnail: 'https://randomuser.me/api/portraits/thumb/women/37.jpg',
     },
     nat: 'CA',
+    status: 'draft',
+    imported_t: '2021-07-09T01:46:14.291Z',
   },
 ];

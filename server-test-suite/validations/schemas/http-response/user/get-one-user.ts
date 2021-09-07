@@ -19,7 +19,7 @@ import joiValidator from '../../index';
 
 export const getOneUserSchema = joi
   .object({
-    [Common.MongoId]: joi.any(),
+    [Common.MongoId]: joi.any().required(),
     [User.Name]: joi
       .object({
         [Name.Title]: joi.string().required(),

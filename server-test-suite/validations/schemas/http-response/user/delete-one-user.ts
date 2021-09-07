@@ -9,8 +9,8 @@ const deleteUserSchema = joi
       ts: joi.string().required(),
       t: joi.number().required(),
     }),
-    electionId: joi.string().required(),
-    ok: joi.number().required(),
+    electionId: joi.string(),
+    ok: joi.number().valid(1).required(),
     $clusterTime: joi.object({
       clusterTime: joi.string().required(),
       signature: joi.object({
@@ -18,8 +18,8 @@ const deleteUserSchema = joi
         keyId: joi.string().required(),
       }),
     }),
-    operationTime: joi.string().required(),
-    deletedCount: joi.number().required(),
+    operationTime: joi.string(),
+    deletedCount: joi.number().min(1).required(),
   })
   .required()
   .unknown(true);

@@ -1,6 +1,5 @@
 import { Document } from 'mongoose';
 
-import { Common } from '../../../../../constants';
 import { safeParseInt } from '../../../../../utils';
 import { GetAll } from '../../../../../validators/types/sub-types';
 import { queryGuard } from '../helpers';
@@ -30,12 +29,7 @@ export function makeGetAllEntities<D extends Document, T>({
                 },
                 { $skip: skip },
                 { $limit: docPerPage || 15 },
-                {
-                  $project: {
-                    [Common.MongoId]: 0,
-                    ...(options.projection ?? {}),
-                  },
-                },
+                ...(options.projection ? [{ $project: options.projection }] : []),
               ],
               count: [
                 {

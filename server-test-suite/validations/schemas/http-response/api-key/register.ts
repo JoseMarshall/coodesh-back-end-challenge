@@ -9,11 +9,11 @@ const apiKeySchema = joi
     [ApiKey.Host]: joi.string().required(),
     [ApiKey.Usage]: joi
       .array()
+      .required()
       .items(
-        joi.object({ date: joi.date().required(), count: joi.number().required() }).unknown(false)
+        joi.object({ date: joi.date().required(), count: joi.number().required() }).unknown(true)
       )
-      .min(1)
-      .required(),
+      .min(1),
     [TimeStamps.CreatedAt]: joi.date().required(),
     [TimeStamps.UpdatedAt]: joi.date().required(),
   })
