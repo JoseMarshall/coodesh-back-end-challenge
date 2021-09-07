@@ -89,6 +89,10 @@ const locationSchema = makeObjectSchema({
       description: 'The city name',
       example: `Poitiers`,
     }),
+    [Location.Country]: makeStringSchema({
+      description: 'The country name',
+      example: `Turkey`,
+    }),
     [Location.State]: makeStringSchema({
       description: 'The state name',
       example: `Haute-Loire`,

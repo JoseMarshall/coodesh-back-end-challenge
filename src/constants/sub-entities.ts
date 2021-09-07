@@ -28,6 +28,7 @@ export enum UserId {
 export enum Location {
   Street = 'street',
   City = 'city',
+  Country = 'country',
   State = 'state',
   PostCode = 'postcode',
   Coordinates = 'coordinates',

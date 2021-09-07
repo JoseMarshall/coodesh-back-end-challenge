@@ -38,6 +38,7 @@ export interface IStreet {
 export interface ILocation {
   [LocationEnum.Street]: IStreet;
   [LocationEnum.City]: string;
+  [LocationEnum.Country]: string;
   [LocationEnum.State]: string;
   [LocationEnum.PostCode]: string;
   [LocationEnum.Coordinates]: ICoordinates;

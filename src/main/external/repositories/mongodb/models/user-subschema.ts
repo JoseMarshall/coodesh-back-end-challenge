@@ -58,6 +58,7 @@ export const locationSchema = new Schema(
   {
     [Location.Street]: streetSchema,
     [Location.City]: { type: String, required: true },
+    [Location.Country]: { type: String, required: true },
     [Location.State]: { type: String, required: true },
     [Location.PostCode]: { type: String, required: true },
     [Location.Coordinates]: coordinatesSchema,
