@@ -40,3 +40,4 @@ dist
 built
 
 .vscode
+globalConfig.json
