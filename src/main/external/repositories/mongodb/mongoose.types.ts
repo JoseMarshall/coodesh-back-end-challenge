@@ -42,16 +42,16 @@ export interface MakeGetAllEntityData<D extends Document, K> {
 
 export interface MakeUpdateOneEntityData<D extends Document> {
   model: Model<D>;
-  transaction: ClientSession;
+  transaction?: ClientSession;
   populateOptions?: Array<PopulateOptions> | PopulateOptions;
 }
 
 export interface MakeCreateEntityData<D extends Document> {
   model: Model<D>;
-  transaction: ClientSession;
+  transaction?: ClientSession;
 }
 
 export interface MakeDeleteOneEntityData<D extends Document> {
   model: Model<D>;
-  transaction: ClientSession;
+  transaction?: ClientSession;
 }

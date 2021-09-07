@@ -44,7 +44,7 @@ export const getOneUserSchema = joi
         [Location.City]: joi.string().required(),
         [Location.Country]: joi.string().required(),
         [Location.State]: joi.string().required(),
-        [Location.PostCode]: joi.number().required(),
+        [Location.PostCode]: joi.alternatives(joi.number(), joi.string()).required(),
         [Location.Coordinates]: joi
           .object({
             [Coordinates.Latitude]: joi.string().required(),

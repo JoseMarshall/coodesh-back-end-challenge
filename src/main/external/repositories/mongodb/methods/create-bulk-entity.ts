@@ -14,7 +14,7 @@ export function makeCreateBulkEntity<D extends Document, K extends Entity>({
   return async (body: K[]) => {
     try {
       const docs = await queryGuard<D[]>(
-        model.insertMany(body, {
+        model.create(body, {
           session: transaction?.id ? transaction : undefined,
         })
       );
