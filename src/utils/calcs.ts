@@ -11,7 +11,7 @@ export const calcAge = (dateOfBirth: Date | number | string) => {
 
   if (result < 0)
     throw new Error(
-      `Invalid date of birth, it should be a date before ${new Date().toLocaleString()}`
+      `Invalid date of birth, it should be a date before ${new Date(Date.now()).toLocaleString()}`
     );
   return result;
 };
