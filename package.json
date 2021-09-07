@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "SET NODE_ENV=production&&node ./built/src/main/server.js",
     "dev": "SET NODE_ENV=development&&ts-node-dev --respawn --transpile-only src/main/server.ts",
-    "test:server": "jest -u --noStackTrace --runInBand --detectOpenHandles --forceExit",
+    "test": "jest -u --noStackTrace --runInBand --detectOpenHandles --forceExit",
     "type-check": "tsc --pretty --noEmit",
     "lint": "eslint . --ext ts --ext js --fix",
     "format": "prettier --write **/*.{js,ts}"
