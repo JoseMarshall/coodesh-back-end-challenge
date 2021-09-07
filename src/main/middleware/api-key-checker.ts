@@ -47,15 +47,15 @@ export const validateApiKey = async (req: Request, res: Response, next: NextFunc
         },
         { $inc: { [`${ApiKey.Usage}.$.${ApiKeyUsage.Count}`]: 1 } }
       );
-
-      return next();
+    } else {
+      await apiKeyRepo.update(
+        {
+          [ApiKey.MongoId]: new ObjectId(account[ApiKey.MongoId]),
+        },
+        { $push: { [ApiKey.Usage]: { [ApiKeyUsage.Date]: today, [ApiKeyUsage.Count]: 1 } } }
+      );
     }
-    return apiKeyRepo.update(
-      {
-        [ApiKey.MongoId]: new ObjectId(account[ApiKey.MongoId]),
-      },
-      { $push: { [ApiKey.Usage]: { [ApiKeyUsage.Date]: today, [ApiKeyUsage.Count]: 1 } } }
-    );
+    return next();
   } catch (e) {
     return res.status(403).json(
       makeMsgBody(ApiMessages.NotAllowed, {
