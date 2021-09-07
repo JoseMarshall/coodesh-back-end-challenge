@@ -8,7 +8,7 @@ export const CustomErrorSchema = joi
     message: joi.string().required().allow(''),
     name: joi.string().required(),
     type: joi.string().required(),
-    stack: joi.string().required().allow(''),
+    stack: joi.string().allow(''),
     statusCode: joi.number().required().min(100).max(511),
   })
   .required()
