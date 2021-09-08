@@ -13,7 +13,15 @@ export const adaptExpressRoute =
       return res.status(data.status).json(makeMsgBody(data.msg, data.body));
     } catch (error) {
       return error instanceof CustomError
-        ? res.status(error.statusCode).json(makeMsgBody(error.message, { error }))
+        ? res.status(error.statusCode).json(
+            makeMsgBody(error.message, {
+              error: {
+                ...error,
+                message: error.message,
+                stack: error.stack,
+              },
+            })
+          )
         : res.status(500).json(
             makeMsgBody(ApiMessages.InternalError, {
               error: new CustomError({
