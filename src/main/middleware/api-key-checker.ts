@@ -1,7 +1,14 @@
 import { ObjectId } from 'bson';
 import { NextFunction, Request, Response } from 'express';
 
-import { ApiErrorsName, ApiErrorsType, ApiKey, ApiKeyUsage, ApiMessages } from '../../constants';
+import {
+  ApiErrorsName,
+  ApiErrorsType,
+  ApiKey,
+  ApiKeyUsage,
+  ApiMessages,
+  Headers,
+} from '../../constants';
 import { addDays, safeParseInt } from '../../utils';
 import CustomError from '../../utils/custom-error';
 import { makeMsgBody } from '../adapters/express-route-adapter';
@@ -12,8 +19,8 @@ export const validateApiKey = async (req: Request, res: Response, next: NextFunc
   const apiKeyRepo = (await uow()).makeApiKeyRepository();
   try {
     const account = await apiKeyRepo.get({
-      [ApiKey.Host]: req.hostname,
-      [ApiKey.Apikey]: req.header('x-api-key'),
+      [ApiKey.Host]: req.headers.host,
+      [ApiKey.Apikey]: req.header(Headers.APIKEY),
     });
     const today = new Date();
     const usageIndex = account.usage.findIndex(
@@ -38,8 +45,8 @@ export const validateApiKey = async (req: Request, res: Response, next: NextFunc
 
       await apiKeyRepo.update(
         {
-          [ApiKey.Host]: req.hostname,
-          [ApiKey.Apikey]: req.header('x-api-key'),
+          [ApiKey.Host]: req.headers.host,
+          [ApiKey.Apikey]: req.header(Headers.APIKEY),
           [`${ApiKey.Usage}.${ApiKeyUsage.Date}`]: {
             $gte: new Date(today.toISOString().split('T')[0]),
             $lt: addDays(today, 1),
