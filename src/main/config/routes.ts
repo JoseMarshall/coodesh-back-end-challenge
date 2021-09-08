@@ -5,6 +5,7 @@ import path from 'path';
 import { ApiErrorsName, ApiErrorsType, ApiMessages } from '../../constants';
 import CustomError from '../../utils/custom-error';
 import { makeMsgBody } from '../adapters/express-route-adapter';
+import handleInvalidRoute from './handle-invalid-route';
 
 export default (app: Express): void => {
   app.get('/', (_req: Request, res: Response) =>
@@ -23,6 +24,8 @@ export default (app: Express): void => {
       app.use(`/${file}`, router);
     }
   });
+
+  handleInvalidRoute(app);
 
   /**
    * Global error handler, handles all generic errors

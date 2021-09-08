@@ -17,9 +17,6 @@ const start = async () => {
 
     const { default: App } = await import('./config/app');
 
-    const handleInvalidRoute = (await import('./config/handle-invalid-route')).default;
-
-    handleInvalidRoute(App);
     const port = process.env.PORT ?? 3333;
     App.listen(port, () =>
       logger.info(`Server running at ${process.env.URL_ROOT ?? 'http://localhost'}:${port}`)
