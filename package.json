@@ -5,7 +5,7 @@
   "main": "built/src/main/server.js",
   "scripts": {
     "build": "tsc",
-    "start": "SET NODE_ENV=production&&node ./built/src/main/server.js",
+    "start": "node ./built/src/main/server.js",
     "dev": "SET NODE_ENV=development&&ts-node-dev --respawn --transpile-only src/main/server.ts",
     "test": "jest -u --noStackTrace --runInBand --detectOpenHandles --forceExit",
     "type-check": "tsc --pretty --noEmit",
