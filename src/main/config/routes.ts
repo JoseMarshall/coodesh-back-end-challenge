@@ -1,13 +1,14 @@
 import { Express, NextFunction, Request, Response, Router } from 'express';
-import { readdirSync } from 'fs';
+import { readdir } from 'fs';
 import path from 'path';
+import { promisify } from 'util';
 
 import { ApiErrorsName, ApiErrorsType, ApiMessages } from '../../constants';
 import CustomError from '../../utils/custom-error';
 import { makeMsgBody } from '../adapters/express-route-adapter';
 import handleInvalidRoute from './handle-invalid-route';
 
-export default (app: Express): void => {
+export default async (app: Express): Promise<void> => {
   app.get('/', (_req: Request, res: Response) =>
     res.status(200).json({
       msg: 'REST Back-end Challenge 20201209 Running',
@@ -17,13 +18,18 @@ export default (app: Express): void => {
   /**
    * Load all routes from routes folder
    */
-
-  readdirSync(path.resolve(__dirname, '../../routes')).map(async file => {
-    if (!file.includes('__tests__')) {
-      const router = (await import(`../../routes/${file}`)).default(Router());
-      app.use(`/${file}`, router);
-    }
-  });
+  const readdirAsync = promisify(readdir);
+  const routes = await readdirAsync(path.resolve(__dirname, '../../routes'));
+  await Promise.all(
+    routes.map(r => [
+      (async () => {
+        if (!r.includes('__tests__')) {
+          const router = (await import(`../../routes/${r}`)).default(Router());
+          app.use(`/${r}`, router);
+        }
+      })(),
+    ])
+  );
 
   handleInvalidRoute(app);
 
