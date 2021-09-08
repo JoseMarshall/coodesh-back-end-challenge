@@ -17,6 +17,8 @@ export function makeDeleteOneEntity<D extends Document, K>({
         })
         .lean()
     );
+
+    if ((doc as any).deletedCount === 0) throw new Error();
     return doc as unknown as K;
   };
 }
