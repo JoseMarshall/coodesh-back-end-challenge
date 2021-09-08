@@ -11,7 +11,7 @@ export function registerApiKeyUC() {
     try {
       const apiKeyRepo = unitOfWork.makeApiKeyRepository();
 
-      const createdApiKey = (await apiKeyRepo.add(makeApiKey(req.hostname)))[0];
+      const createdApiKey = (await apiKeyRepo.add(makeApiKey(req.headers.host)))[0];
 
       return {
         payload: createdApiKey,
