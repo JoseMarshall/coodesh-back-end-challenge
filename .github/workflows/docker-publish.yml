@@ -44,7 +44,7 @@ jobs:
         with:
           context: ./
           file: ./Dockerfile
-          push: true
+          push: ${{secrets.DOCKER_HUB_USERNAME}}/user_cron:latest
           tags: latest, ${{github.run_number}}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
