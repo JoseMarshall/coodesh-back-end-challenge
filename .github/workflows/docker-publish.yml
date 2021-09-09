@@ -3,7 +3,7 @@ name: CI to Docker Hub
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
-# documentation.
+# documentation
 on:
   push:
     branches: [ develop ]
@@ -42,7 +42,8 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: ./
+          file: ./Dockerfile
           push: true
           tags: latest, ${{github.run_number}}
       - name: Image digest
