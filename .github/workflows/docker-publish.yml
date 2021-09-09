@@ -15,7 +15,12 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-
+  URL_ROOT: 'http://localhost'
+  MAX_API_KEY_USAGE: '30'
+  CORN_SECOND: 0 
+  CORN_MINUTE: 0
+  CORN_HOUR: 0
+  MONGO_URL: "mongodb+srv://sa:admin@cluster0.wdqxg.mongodb.net/coodesh-back-end?retryWrites=true&w=majority"
 
 jobs:
   build:
