@@ -4,14 +4,19 @@ WORKDIR /user-corn
 
 COPY package*.json ./
 COPY tsconfig.json ./
+COPY .env.production ./
+
 RUN npm install
-RUN npm build
-RUN ls -a
-COPY built/ ./
+
+COPY src ./src
+COPY docs ./docs
+
+RUN npm run build
+
 
 #ENV
 ENV NODE_ENV production
 
 EXPOSE 3333
 
-CMD [ "node", "./src/main/server.js" ]
+CMD [ "node", "./built/src/main/server.js" ]
