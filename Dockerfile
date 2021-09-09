@@ -3,6 +3,7 @@ FROM node:14 as base
 WORKDIR /user-corn
 
 COPY package*.json ./
+COPY tsconfig.json ./
 RUN npm install
 RUN npm build
 RUN ls -a
