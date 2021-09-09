@@ -5,7 +5,7 @@ WORKDIR /user-corn
 COPY package*.json ./
 RUN npm install
 RUN npm build
-
+RUN ls -a
 COPY ./built .
 
 #ENV
