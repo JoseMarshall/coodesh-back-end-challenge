@@ -7,7 +7,7 @@ COPY tsconfig.json ./
 RUN npm install
 RUN npm build
 RUN ls -a
-COPY ./built .
+COPY built/ ./
 
 #ENV
 ENV NODE_ENV production
