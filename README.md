@@ -55,6 +55,9 @@ npm run dev
 #### Tests:
 ```npm run test```
 
+#### Docker:
+The app is deployed in docker too, you can access through this link:
+
 ## Contributing
 Pull requests are welcome; create a branch based on the ```develop``` branch. For major changes, please open an issue first to discuss what you would like to change.
 
@@ -62,30 +65,3 @@ Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
-## Finalização e Instruções para a Apresentação
-
-Avisar sobre a finalização e enviar para correção.
-
-1. Confira se respondeu o Scorecard Back-End;
-2. Verique se o Readme está bom e faça o commit final em seu repositório;
-3. Acesse: [https://coodesh.com/review-challenge](https://coodesh.com/review-challenge);
-4. Coloque seu nome completo; 
-5. Coloque seu e-mail;
-6. Adicione o repositório com a sua solução;
-7. Confira a vaga desejada;
-
-![Solicitar Correção](https://res.cloudinary.com/coodesh/image/upload/v1612571243/coodesh-teams/challenges/repo.gif)
-
-8. Envie e aguarde as instruções para apresentação da sua solução
-
-## Instruções para se preparar para a Apresentação:
-
-1. Aguarde o e-mail com as instruções de apresentação 
-2. Enquanto isso, crie uma conta na plataforma: https://www.loom.com/ e instale o Desktop App ou Extensão no Chrome: https://www.loom.com/download 
-3. DICA: Será necessário compartilhar a tela durante a gravação ou vídeo chamada. Deixe todos os projetos de solução previamente abertos em seu computador antes de iniciar a gravação ou chamanda de vídeo. Ambientes configurados e prontos para rodar.
-4. Prepara-se pois você será questionado sobre cada etapa e decisão do Challenge. Prepare uma lista de perguntas, dúvidas, sugestões de melhorias e feedbacks (caso tenha).
-
-## Suporte
-
-Use o nosso canal no slack: http://bit.ly/32CuOMy para tirar dúvidas sobre o processo ou envie um e-mail para contato@coodesh.com.
-
