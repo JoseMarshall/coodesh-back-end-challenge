@@ -4,7 +4,7 @@ WORKDIR /user-corn
 
 COPY package*.json ./
 COPY tsconfig.json ./
-COPY .env.production ./
+COPY .env.* ./
 
 RUN npm install
 
