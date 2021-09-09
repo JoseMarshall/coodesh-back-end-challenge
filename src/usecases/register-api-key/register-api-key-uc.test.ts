@@ -27,12 +27,12 @@ describe(`${registerApiKeyUC.name} use-case`, () => {
   });
 
   it('should registe a new api key with given hostname', async () => {
-    const req = { hostname: '192.168.1.1:8080' };
+    const req = { headers: { host: '192.168.1.1:8080' } };
     const result = await makeSutRequest(sut(), req);
     const validated = await registerApiKeyValidator(result.payload);
 
     expect(validated).toBeDefined();
-    expect(result.payload[ApiKey.Host]).toEqual(req.hostname);
+    expect(result.payload[ApiKey.Host]).toEqual(req.headers.host);
   });
 
   it('should receive a custom error due to not found hostname', async () => {

@@ -1,85 +1,67 @@
-# Back-end Challenge 🏅 2021
+# Coodesh: Back-end Challenge 🏅 2021
 
-## Introdução
+## Description
+This project is a solution to the [challenge](https://lab.coodesh.com/public-challenges/back-end-challenge-2021) proposed by the coodesh, a REST API that uses a cron system to load data into a database and exposes it through the following endpoints:
 
-Este é um desafio para testar seus conhecimentos em Back-end;
+   - `GET /`: Return a message "REST Back-end Challenge 20201209 Running"
+   - `PUT /users/:userId`: handle the made updates in a user
+   - `DELETE /users/:userId`: remove the user from database
+   - `GET /users/:userId`: get a user
+   - `GET /users`: get a list of users
 
-O objetivo é avaliar a sua forma de estruturação e autonomia em decisões para construir algo escalável utilizando um framework moderno.
+## Techs/Languages/Frameworks
+-  Typescript             
+-  ExpressJS 
+-  Joi
+-  MongoDB
+-  Mongoose
+-  Node-Cron
+-  Node-Fetch
+-  Swagger
+-  EsLint
+-  Prettier
+-  Jest
+-  Supertest
+-  Docker
 
-Você está livre para usar uma das seguintes tecnologias para desenvolver o back-end da solução deste tech challenge: **Node.js** ou **C# .NET Core** ou **PHP Laravel** ou **RubyOnRails** ou **Go Lang** ou **Python FastAPI** ou **Kotlin SpringBoot** ou **Java** ou **Rust**.
+## Installation
 
-[SPOILER] As instruções de entrega e apresentação do challenge estão no final deste Readme (=
+Use the package manager (all instructions are given based on ```npm```) to install the packages
 
-## Case
+```bash
+npm install
+```
 
-A empresa Pharma Inc, está trabalhando em um projeto em colaboração com sua base de clientes para facilitar a gestão e visualização da informação dos seus pacientes de maneira simples e objetiva em um Dashboard onde podem listar, filtrar e expandir os dados disponíveis.
-O seu objetivo nesse projeto, é trabalhar no desenvolvimento da REST API da empresa Pharma Inc seguindo os requisitos propostos neste desafio.
+## Usage
+1- Create a mongodb [cluster](https://www.mongodb.com/cloud/atlas/lp/general/try?utm_source=compass&utm_medium=product)
 
-## Recursos
+2- Create a .env.development file with the following keys:
+```typescript
+URL_ROOT= 'http://localhost'
+MAX_API_KEY_USAGE='30' #The max limit of API Key usage
+PORT= 3333 #The port number server will be listening to, the default is 3333
+CORN_SECOND = 0 #The preferred second to load the data from randomuser api
+CORN_MINUTE = 0 #The preferred minute to load the data from randomuser api
+CORN_HOUR = 0 #The preferred hour to load the data from randomuser api
 
-1. Desenvolver REST API importando os dados do projeto: https://randomuser.me/documentation
-2. Trabalhar em um [FORK](https://lab.coodesh.com/help/gitlab-basics/fork-project.md) deste repositório em seu usuário ou utilizar um repositório em seu github pessoal (não esqueça de colocar no readme a referência a este challenge)
+MONGO_URL="The URL to connect to the previously created cluster on step 1" 
+```
+3- Run the ```dev``` script:
+```bash
+npm run dev
+```
+4- Go to the API docs through your browser, hit the endpoint ```/api-docs``` to see all available endpoints and their specs 
 
+#### Tests:
+```npm run test```
 
-## API
+## Contributing
+Pull requests are welcome; create a branch based on the ```develop``` branch. For major changes, please open an issue first to discuss what you would like to change.
 
-### Modelo de Dados:
+Please make sure to update tests as appropriate.
 
-Para a definição do modelo, consultar o arquivo [users.json](./users.json) que foi exportado do Random Users.
-
-- `imported_t`: campo do tipo Date com a dia e hora que foi importado;
-- `status`: campo do tipo Enum com os possíveis valores draft, trash e published;
-
-### Sistema do CRON
-
-Para prosseguir com o desafio, precisaremos criar na API um sistema de atualização que vai importar os dados para a Base de Dados com a versão mais recente do [Random User](https://randomuser.me/documentation#format) uma vez ao día. Adicionar aos arquivos de configuração o melhor horário para executar a importação.
-
-A lista de arquivos do Random User, pode ser encontrada em: 
-
-- https://randomuser.me/api
-
-Escolher o formato que seja mais cômodo para importar todos os dados para a Base de Dados, o Random User tem os seguintes formatos:
-
-- JSON (default)
-- PrettyJSON or pretty
-- CSV
-- YAML
-- XML
-
-Ter em conta que:
-
-- Todos os produtos deverão ter os campos personalizados `imported_t` e `status`.
-- Importar os dados de maneira paginada para não sobrecargar a API do Random Users. Por exemplo, de 100 em usuários.
-- Limitar a importação a somente 2000 usuarios;
-
-
-### A REST API
-
-
-Na REST API teremos um CRUD com os seguintes endpoints:
-
-   - `GET /`: Retornar uma mensagem "REST Back-end Challenge 20201209 Running"
-   - `PUT /users/:userId`: Será responsável por receber atualizações realizadas
-   - `DELETE /users/:userId`: Remover o user da base
-   - `GET /users/:userId`: Obter a informação somente de um user da base de dados
-   - `GET /users`: Listar todos os usuários da base de dados
-
-### Extras
-
-- **Diferencial 1** Escrever Unit Test para os endpoints da REST API
-- **Diferencial 2** Executar o projeto usando Docker
-- **Diferencial 3** Escrever um esquema de segurança utilizando `API KEY` nos endpoints. Ref: https://learning.postman.com/docs/sending-requests/authorization/#api-key
-- **Diferencial 4** Descrever a documentação da API utilizando o conceito de Open API 3.0;
-
-## Readme do Repositório
-
-- Deve conter o título do projeto
-- Uma descrição sobre o projeto em frase
-- Deve conter uma lista com linguagem, framework e/ou tecnologias usadas
-- Como instalar e usar o projeto (instruções)
-- Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore)
-- Se está usando github pessoal, referencie que é um challenge by coodesh 
-
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 ## Finalização e Instruções para a Apresentação
 
 Avisar sobre a finalização e enviar para correção.

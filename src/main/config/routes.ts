@@ -21,13 +21,13 @@ export default async (app: Express): Promise<void> => {
   const readdirAsync = promisify(readdir);
   const routes = await readdirAsync(path.resolve(__dirname, '../../routes'));
   await Promise.all(
-    routes.map(r => [
-      (async () => {
+    routes.flatMap(route => [
+      (async r => {
         if (!r.includes('__tests__')) {
           const router = (await import(`../../routes/${r}`)).default(Router());
           app.use(`/${r}`, router);
         }
-      })(),
+      })(route),
     ])
   );
 

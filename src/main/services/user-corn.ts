@@ -7,9 +7,9 @@ import { logger } from '../../utils/logger';
 import uow from '../external/repositories/mongodb/unit-of-work';
 import { getRequest } from './make-request';
 
-const SECOND = process.env.CORN_SECOND ?? '00';
-const MINUTE = process.env.CORN_MINUTE ?? '00';
-const HOUR = process.env.CORN_HOUR ?? '00';
+const SECOND = process.env.CORN_SECOND ?? '0';
+const MINUTE = process.env.CORN_MINUTE ?? '0';
+const HOUR = process.env.CORN_HOUR ?? '0';
 
 const importUsers = async () => {
   const userRepo = (await uow()).makeUserRepository();

@@ -76,7 +76,7 @@ export const validateApiKey = async (req: Request, res: Response, next: NextFunc
                 message: ApiMessages.NotAllowed,
                 stack: '',
                 details: {
-                  msg: `Require a valid API key using this endpoint: GET /api-key/register`,
+                  msg: `Require a valid API Key using this endpoint: GET /api-key/register and send your subsequent resquest with the API Key in headers under ${Headers.APIKEY}`,
                 },
               }),
       })

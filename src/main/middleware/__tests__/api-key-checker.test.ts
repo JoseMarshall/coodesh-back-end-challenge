@@ -13,7 +13,7 @@ import { validateApiKey } from '../api-key-checker';
 
 const makeRequestObject = ({ host, apiKey }) =>
   ({
-    hostname: host,
+    headers: { host },
     header: jest.fn().mockReturnValue(apiKey),
   } as unknown as Request);
 

@@ -10,6 +10,7 @@ import {
 import deleteUserValidator from '../../../server-test-suite/validations/schemas/http-response/user/delete-one-user';
 import { CollectionNames, Common } from '../../constants';
 import { UserModel } from '../../main/external/repositories/mongodb/models';
+import CustomError from '../../utils/custom-error';
 import { deleteOneUserUC } from './index';
 
 const makeSut = () => ({
@@ -38,11 +39,15 @@ describe(`${deleteOneUserUC.name} use-case`, () => {
     expect(validated).toBeDefined();
   });
 
-  it('should receive a an object with deletedCount 0, due to not found user', async () => {
+  it('should receive a an error, due to not found user', async () => {
     const query = {
       [Common.MongoId]: '7a51a5a5-9e10-45e5-a293-3d33eaf660e4',
     };
-    const result = await makeSutRequest(sut(), query);
-    expect(result.payload).toEqual({ n: 0, ok: 1, deletedCount: 0 });
+    try {
+      const result = await makeSutRequest(sut(), query);
+      expect(result.payload).toEqual({ n: 0, ok: 1, deletedCount: 0 });
+    } catch (error) {
+      expect(error).toBeInstanceOf(CustomError);
+    }
   });
 });
