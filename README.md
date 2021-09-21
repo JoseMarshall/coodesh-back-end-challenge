@@ -44,7 +44,7 @@ CORN_SECOND = 0 #The preferred second to load the data from randomuser api
 CORN_MINUTE = 0 #The preferred minute to load the data from randomuser api
 CORN_HOUR = 0 #The preferred hour to load the data from randomuser api
 
-MONGO_URL="The URL to connect to the previously created cluster on step 1" 
+MONGO_URL= "mongodb+srv://USER_NAME:PASSWORD@CLUSTER.mongodb.net/coodesh-back-end?retryWrites=true&w=majority" #The URL to connect to the previously created cluster on step 1 
 ```
 3- Run the ```dev``` script:
 ```bash
@@ -56,8 +56,8 @@ npm run dev
 ```npm run test```
 
 #### Docker:
-The app is deployed in docker too, you can access through this link:
-
+The docker image can be found through through this link:
+[https://hub.docker.com/repository/docker/josemarshall/user_cron](https://hub.docker.com/repository/docker/josemarshall/user_cron)
 ## Contributing
 Pull requests are welcome; create a branch based on the ```develop``` branch. For major changes, please open an issue first to discuss what you would like to change.
 
